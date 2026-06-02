@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>純前端背單字 App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>背單字小幫手</h1>
+    <nav>
+      <button id="tab-flashcards" class="tab-button active">單字卡</button>
+      <button id="tab-manage" class="tab-button">管理頁面</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="flashcard-page" class="page active-page">
+      <div class="flashcard-wrapper">
+        <div id="flashcard" class="flashcard">
+          <div class="side front" id="card-front">點擊翻牌</div>
+          <div class="side back" id="card-back">翻牌看答案</div>
+        </div>
+      </div>
+      <div class="flashcard-info">
+        <button id="prev-word" class="small-button">上一個</button>
+        <span id="current-index">0 / 0</span>
+        <button id="next-word" class="small-button">下一個</button>
+      </div>
+      <div class="card-details" id="card-details"></div>
+    </section>
+
+    <section id="manage-page" class="page">
+      <form id="word-form" class="manage-form">
+        <div class="form-row">
+          <label for="english-word">英文單字</label>
+          <input id="english-word" type="text" placeholder="例如: example" required />
+        </div>
+        <div class="form-row horizontal-row">
+          <button type="button" id="auto-fill" class="primary-button">自動填入</button>
+          <button type="submit" class="primary-button">新增單字</button>
+        </div>
+        <div class="form-row">
+          <label for="translation">翻譯</label>
+          <textarea id="translation" rows="2" placeholder="中文翻譯"></textarea>
+        </div>
+        <div class="form-row">
+          <label for="part-of-speech">詞性</label>
+          <input id="part-of-speech" type="text" placeholder="名詞/動詞/形容詞" />
+        </div>
+        <div class="form-row">
+          <label for="example-sentence">例句</label>
+          <textarea id="example-sentence" rows="3" placeholder="例句"></textarea>
+        </div>
+        <div class="form-row">
+          <label for="root-analysis">字根分析</label>
+          <textarea id="root-analysis" rows="3" placeholder="字根分析"></textarea>
+        </div>
+      </form>
+
+      <section class="manage-list">
+        <h2>已儲存單字</h2>
+        <div id="word-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>純前端單字學習 App，使用本機儲存管理單字資料。</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
