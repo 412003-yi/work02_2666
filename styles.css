@@ -120,11 +120,11 @@ main {
   transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 14px;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 10px;
+  font-size: 0.92rem;
+  line-height: 1.4;
   width: 100%;
   height: 100%;
   overflow-y: auto;
@@ -133,6 +133,7 @@ main {
 
 .back .back-item {
   width: 100%;
+  margin-bottom: 4px;
 }
 
 .back .back-title {
