@@ -88,7 +88,11 @@ function renderFlashcard() {
   cardFront.textContent = current.english;
   cardBack.innerHTML = `
     <p class="back-content">
-      翻譯：${current.translation || "無"}，詞性：${current.partOfSpeech || "無"}，例句：${current.example || "無"}，字根分析：${current.root || "無"}
+      翻譯：${current.translation || "無"}
+詞性：${current.partOfSpeech || "無"}
+例句：${current.example || "無"}
+字根分析：${current.root || "無"}
+備註：各欄為單字意思與翻譯等，不顯示於卡面
     </p>
   `;
   currentIndex.textContent = `${currentWordIndex + 1} / ${wordEntries.length}`;
