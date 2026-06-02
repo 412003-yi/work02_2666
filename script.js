@@ -87,22 +87,9 @@ function renderFlashcard() {
   const current = wordEntries[currentWordIndex];
   cardFront.textContent = current.english;
   cardBack.innerHTML = `
-    <div class="back-item">
-      <p class="back-title">翻譯</p>
-      <p class="back-text">${current.translation || "無"}</p>
-    </div>
-    <div class="back-item">
-      <p class="back-title">詞性</p>
-      <p class="back-text">${current.partOfSpeech || "無"}</p>
-    </div>
-    <div class="back-item">
-      <p class="back-title">例句</p>
-      <p class="back-text">${current.example || "無"}</p>
-    </div>
-    <div class="back-item">
-      <p class="back-title">字根分析</p>
-      <p class="back-text">${current.root || "無"}</p>
-    </div>
+    <p class="back-content">
+      翻譯：${current.translation || "無"}，詞性：${current.partOfSpeech || "無"}，例句：${current.example || "無"}，字根分析：${current.root || "無"}
+    </p>
   `;
   currentIndex.textContent = `${currentWordIndex + 1} / ${wordEntries.length}`;
   cardDetails.innerHTML = `
