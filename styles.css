@@ -108,6 +108,7 @@ main {
   text-align: center;
   transition: transform 0.4s ease;
   backface-visibility: hidden;
+  overflow: hidden;
 }
 
 .front {
@@ -124,6 +125,10 @@ main {
   gap: 14px;
   font-size: 0.95rem;
   line-height: 1.6;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  text-align: left;
 }
 
 .back .back-item {
@@ -137,6 +142,7 @@ main {
 
 .back .back-text {
   margin: 0;
+  word-break: break-word;
 }
 
 .flashcard-info {
