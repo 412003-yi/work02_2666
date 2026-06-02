@@ -117,16 +117,26 @@ main {
 
 .back {
   transform: rotateY(180deg);
-  display: grid;
-  align-items: center;
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 14px;
   font-size: 0.95rem;
   line-height: 1.6;
 }
 
+.back .back-item {
+  width: 100%;
+}
+
 .back .back-title {
   font-weight: 700;
-  margin-bottom: 8px;
+  margin: 0 0 6px;
+}
+
+.back .back-text {
+  margin: 0;
 }
 
 .flashcard-info {
