@@ -27,6 +27,8 @@ let currentWordIndex = 0;
 let cardFlipped = false;
 
 const STORAGE_KEY = "vocabFlashcards";
+const GOOGLE_APPS_SCRIPT_URL = ""; // 待填入 Google Apps Script 部署 URL
+
 const defaultWords = [
   {
     english: "example",
@@ -129,6 +131,30 @@ function addWord(entry) {
   saveWords();
   renderManageList();
   renderFlashcard();
+}
+
+async function sendToBackend(entry) {
+  if (!GOOGLE_APPS_SCRIPT_URL) {
+    console.warn("Google Apps Script URL 尚未設定，僅儲存到本地");
+    return true;
+  }
+
+  try {
+    const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(entry),
+    });
+    console.log("資料已發送到後端");
+    return true;
+  } catch (error) {
+    console.error("發送到後端失敗:", error);
+    alert("發送到後端失敗，但資料已儲存在本地");
+    return false;
+  }
 }
 
 function buildRootAnalysis(word, dictionaryData) {
@@ -266,9 +292,11 @@ function bindEvents() {
       return;
     }
     addWord(newEntry);
+    sendToBackend(newEntry);
     wordForm.reset();
     alert("已新增單字！");
   });
+
 
   autoFillButton.addEventListener("click", autoFillData);
 
